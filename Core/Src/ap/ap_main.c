@@ -31,10 +31,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	if (htim->Instance == TIM3) {
 		//fnd_show_number();
 		Disp_ISR();
-		ClockNeedle_ISR();
 	} else if (htim->Instance == TIM4) {
 		TimeClock_ISR();
 		StopWatch_ISR();
+	} else if (htim->Instance == TIM9) {
+		ClockNeedle_ISR();
 	}
 }
 
@@ -69,7 +70,7 @@ void ap_stopWatchMode(void) {
 	if (button_getState(&btnMode) == ACT_RELEASE) {
 		modeState = TIME_CLOCK_MODE;
 	}
-	TimeClock_task();
+	StopWatch_task();
 
 	stopWatchState = StopWatch_getState();
 	Disp_setStopWatchState(stopWatchState);

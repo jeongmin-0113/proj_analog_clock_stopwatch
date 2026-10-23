@@ -47,7 +47,7 @@ void ClockNeedle_addStepCount(int idx) {
 void ClockNeedle_ISR(void) {
 	for (int i = 0; i < 3; i++)
 		if (clockNeedles[i].targetStepCounter
-				> clockNeedles[i].curStepCounter) {
+				!= clockNeedles[i].curStepCounter) {
 			StepMotor_stepPhase(&clockNeedles[i].motor, STEPMOTOR_DIR_CW);
 			ClockNeedle_addStepCount(i);
 		}

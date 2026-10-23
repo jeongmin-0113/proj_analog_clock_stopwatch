@@ -17,6 +17,7 @@ typedef struct {
 	uint8_t msec;
 } clockNeedle_time_t;
 
+void ClockNeedle_init(void);
 void ClockNeedle_ISR(void);
 void ClockNeedle_setTime(clockNeedle_time_t *t);
 

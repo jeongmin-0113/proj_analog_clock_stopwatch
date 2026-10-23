@@ -43,6 +43,7 @@ void ap_init(void) {
 	StopWatch_init();
 	TimeClock_init();
 	Disp_init();
+	ClockNeedle_init();
 
 	button_init(&btnMode, GPIOC, GPIO_PIN_0);
 

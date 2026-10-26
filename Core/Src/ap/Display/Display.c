@@ -126,7 +126,7 @@ void Disp_timeClockDate(void) {
 	char dateStr[30];
 	static timeClockDate_t prevDate = { 0, };
 
-	if ((memcmp(&prevDate, pTimeClockDate, sizeof(timeClockDate_t)) == 0)
+	if ((memcmp(&prevDate, pTimeClockDate, sizeof(timeClockDate_t)) != 0)
 			| (prevState != TIMECLOCK_MODE)) {
 		memcpy(&prevDate, pTimeClockDate, sizeof(timeClockDate_t));
 
